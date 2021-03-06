@@ -12,7 +12,6 @@ const CharactersList = (props) => {
 
     const showMore =(e)=> { 
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop+window.innerHeight)<40){
-            console.log('scroll')
             props.fetch(true)
         }
     }

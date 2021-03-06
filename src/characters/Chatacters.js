@@ -12,11 +12,12 @@ const Characters = () => {
     const [name, setName] = useState()
     const [status, setStatus] = useState()
     const [gender, setGender] = useState()
+    const [spechies, setSpechies] = useState()
 
         useEffect(()=>{
             if (fetching){
                 
-                axios.get(`https://rickandmortyapi.com/api/character?page=${currentPage}&${name}&${status}&${gender}`)
+                axios.get(`https://rickandmortyapi.com/api/character?page=${currentPage}&${name}&${status}&${gender}&${spechies}`)
                 .then(response=>{
                     if(response.data.results){
                     setCharacters([...characters, ...response.data.results])
@@ -32,7 +33,7 @@ const Characters = () => {
 
     return (
         <div className='par-body par-character' >
-            <SearchCharacters name={setName} fetch={setFetching} currentPage={setCurrentPage} characters={setCharacters} status={setStatus} gender={setGender}/>
+            <SearchCharacters name={setName} fetch={setFetching} currentPage={setCurrentPage} characters={setCharacters} status={setStatus} gender={setGender} spechies={setSpechies}/>
             <CharactersList fetch={setFetching} characters={characters}/>
             
         </div>
