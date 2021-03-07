@@ -28,7 +28,7 @@ const SearchCharacters = (props) => {
     const genderHendler =(event)=>{ 
         if (event.target.value==='all'){ 
            props.currentPage(1)
-           props.status()
+           props.gender()
            props.characters([])
            props.fetch(true)
         }
@@ -71,6 +71,7 @@ const SearchCharacters = (props) => {
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="unknown">Unknown</option>
+                <option value="genderless">Genderless</option>
             </select>
             </div>
             <div> <label htmlFor="Spechies">Spechies: </label>

@@ -10,13 +10,13 @@ const Episodes = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [fetching, setFetching] = useState(true)
     const [name, setName] = useState()
-    const [episodeNum, setEpisodeNum] = useState()
+    const [season, setSeason] = useState()
     
 
         useEffect(()=>{
             if (fetching){
                 
-                axios.get(`https://rickandmortyapi.com/api/episode?page=${currentPage}&${name}&${episodeNum}`)
+                axios.get(`https://rickandmortyapi.com/api/episode?page=${currentPage}&${name}&${season}`)
                 .then(response=>{
                     if(response.data.results){
                     setEpisodes([...episodes, ...response.data.results])
@@ -32,7 +32,7 @@ const Episodes = () => {
 
     return (
         <div className='par-body par-character' >
-            <SearchEpisodes name={setName} fetch={setFetching} currentPage={setCurrentPage} episodes={setEpisodes} episodeNum={setEpisodeNum} />
+            <SearchEpisodes name={setName} fetch={setFetching} currentPage={setCurrentPage} episodes={setEpisodes} season={setSeason} />
             <EpisodesList fetch={setFetching} episodes={episodes}/>
             
         </div>

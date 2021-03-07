@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
-import CharactersInEpisode from './CharactersInEpisode'
+import CharactersInEpisode from '../episodes/CharactersInEpisode'
 
-const EpisodesList = (props) => {
+const LocationsList = (props) => {
     
 
     useEffect(()=>{
@@ -20,19 +20,19 @@ const EpisodesList = (props) => {
 
 
     return (
-        <div className='episodes-body'>
-              {props.episodes.map(item=>
-                    <div key={item.id} className='episode-par'>
-                        <div  className='episode'>
+        <div>
+              {props.locations.map(item=>
+                    <div key={item.id} className='location-par'>
+                        <div className='location'>
                             <div>Name: {item.name}</div>
-                            <div>Air date: {item.air_date}</div>
-                            <div>Episode: {item.episode}</div>
+                            <div>Type: {item.type}</div>
+                            <div>Dimension: {item.dimension}</div>
                         </div>
-                        <CharactersInEpisode characters={item.characters} title='Characters in episode'/>
+                        <CharactersInEpisode characters={item.residents} title='Residents in location'/>
                     </div>
 )}   
         </div>
     )
 }
 
-export default EpisodesList
+export default LocationsList
